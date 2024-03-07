@@ -1,7 +1,7 @@
 package JavaOOP;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+// maram's start
 public class Client {
     
  String name;
@@ -20,6 +20,8 @@ public class Client {
         this.checkOutDate = checkOutDate;
         this.room = room;
     }
+    // maram's end
+    // lamice's start
     public void bookRoom() {
         Scanner scanner=new Scanner (System.in);
         System.out.println("Please enter the following information to book a room :");
@@ -57,7 +59,8 @@ public class Client {
     public static ArrayList<Room> BookedRooms() {
         return BookedROOMS;
     }
-
+    // lamice's end
+    // mesk's start
     public int checkdate() {
         int[] months0 = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
         String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
@@ -201,3 +204,4 @@ public class Client {
                 
             return price;
         }}
+// mesk's end
