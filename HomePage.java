@@ -1,10 +1,6 @@
 package JavaOOP;
 import java.util.Scanner;
 public class HomePage {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         displayHomePage();
 
