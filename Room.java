@@ -6,16 +6,16 @@ public class Room {
     private final int roomNumber;
     private final String type;
     private  boolean available;
-    private final double price;
+    public final double price;
     public final static ArrayList<Room> allRooms = new ArrayList<>();
     static {
       
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 101; i <= 105; i++) {
              allRooms.add(new Room (i, "Double", 150.0) );
         }
 
        
-        for (int i = 6; i <= 15; i++) {
+        for (int i = 106; i <= 115; i++) {
             allRooms.add( new Room(i, "Single", 100.0));
         }
     }
@@ -48,7 +48,7 @@ public class Room {
    
     public void ROOMINFO() {
         
-        System.out.println("Room(" + roomNumber + "): Type= " + type + ", Price: " + price +"$ per night"+ '}');              
+        System.out.println("{ Room(" + roomNumber + "): , Type : " + type + " , price : "+price + " }");              
          
     }
     
