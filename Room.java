@@ -1,7 +1,7 @@
 
 package JavaOOP;
 import java.util.ArrayList;
-
+// maram's start
 public class Room {
     private final int roomNumber;
     private final String type;
@@ -51,7 +51,8 @@ public class Room {
         System.out.println("{ Room(" + roomNumber + "): , Type : " + type + " , price : "+price + " }");              
          
     }
-    
+    // maram's end
+    // rana's start
     public static void viewbookings (){
         System.out.println("Booking rooms:");
         
@@ -63,6 +64,7 @@ public class Room {
             
             
             }
+            //rana's end
            
         }
     
