@@ -40,7 +40,7 @@ public class HomePage {
         }
         }while(choice !=4);
     }
-    // lamice's start
+    // malak's start
     public static void exploreRooms() {
         System.out.println("Available rooms:");
         for(Room room: Room.getAllRooms()){
@@ -52,7 +52,7 @@ public class HomePage {
         }
 
     }
-    // lamice's end
+    // malak's end
     public static void exitSystem() {
         System.out.println("Thank you for using the Hotel Management System. Goodbye!");
         System.exit(0);
