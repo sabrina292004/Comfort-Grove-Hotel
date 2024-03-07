@@ -1,12 +1,10 @@
-
 package JavaOOP;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Client {
     
-
-
-    String name;
+ String name;
     int roomNumber;
     String checkInDate;
     String checkOutDate;
@@ -27,17 +25,29 @@ public class Client {
         System.out.println("Please enter the following information to book a room :");
         // Get the user's name, room number, check-in date and check-out date
         System.out.print("Enter a room number:");
-        this.roomNumber  = scanner.nextInt();
+        int room_number=scanner.nextInt(); 
+        while (room_number<101 || room_number>115)
+        {
+            System.out.println("invalid room number please enter a valid one");
+            room_number=scanner.nextInt();
+        }
+        this.roomNumber  =room_number;
 
         System.out.print("Enter guest name:");
         this.name = scanner.next();
         int finaldate = checkdate();
+       
         boolean is_booked=false;
         for (Room room : Room.getAllRooms()) {
             if (room.getRoomNumber() == roomNumber && room.isAvailable()) {
                 room.setAvailable(false);
                // BookedROOMS.add(Room.allRooms.get(roomNumber));
-                System.out.println("Room "+ roomNumber+ " is booked successfully for "+ name + " for "+ finaldate + " nights");
+                double price=pricing(finaldate , room);
+                System.out.println("The details of your booking process is : ");
+                System.out.println("ROOM NUMBER : " +roomNumber + " is booked successfully ");
+                System.out.println("For GUSET : " + name);
+                System.out.println("Number of night is : " + finaldate);
+                System.out.println("TOTAL PRICE IS : " + price + "$");
                 is_booked=true;
                 break;
             }
@@ -104,6 +114,7 @@ public class Client {
                 break;
             }
             System.out.println("Invalid dates.\nPlease make sure you haven't switched the dates.");
+            nights = 0;
         } 
         while (true);
         return nights;
@@ -136,10 +147,13 @@ public class Client {
 
         public static int Day(String[] months, int[] months0, String month, int year) {
             Scanner S = new Scanner(System.in);
-            int monthLimit =months0[MonthIndex(months, month)];
-            if(LeapYear(year) && months[1].equalsIgnoreCase("feb")){
-                monthLimit++;
+            if(LeapYear(year)){
+                months0[1]=29;
             }
+            else{
+                months0[1]=28;
+            }
+            int monthLimit =months0[MonthIndex(months, month)];
             int day;
             while (true) {
                 System.out.print("Day:");
@@ -176,6 +190,14 @@ public class Client {
 
         
         public String userInfo() {
-            return "Clients{" + "name=" + name + ", roomNumber=" + roomNumber + ", checkInDate=" + checkInDate + ", checkOutDate=" + checkOutDate + ", room=" + room + '}';
+            return "Clients{" + "name=" + name + ", roomNumber=" + roomNumber + ", checkInDate=" + checkInDate + ", checkOutDate=" + checkOutDate + ", room=" + room;
         }
-}
+
+        public double pricing(int nights,  Room room){
+            double price;
+           
+            price = nights*room.price;
+           
+                
+            return price;
+        }}
